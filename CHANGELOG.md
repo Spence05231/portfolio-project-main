@@ -79,3 +79,17 @@ the following form: YYYY.0M.0D.
 - Designed a StockPortfolio component
 - Designed a BankAccount component
 - Designed a DNASequence component
+
+## [2024.10.02]
+
+### Added
+
+- Designed a proof of concept for BankAccount component
+
+### Updated
+
+- Changed design to include multiple features such as adding accounts,
+removing accounts, adding and removing money, calculating interest, getting
+the type of an account, getting values of accounts, adding a overdraft fee,
+getting the total number of accounts, and getting the total money in all
+accounts.
