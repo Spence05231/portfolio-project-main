@@ -18,6 +18,7 @@ public interface BankAccountKernel extends Standard<BankAccount> {
      * @requires deposit >= 0
      * @requires interest >= 0.0 && interest <= 1.0
      * @requires overdraft >= 0
+     * @requires type != ""
      * @ensures |this.accounts| = |this.accounts| + 1
      */
     public void addAccount(String account, int deposit, double interest,

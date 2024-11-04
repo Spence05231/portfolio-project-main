@@ -108,3 +108,18 @@ the method from the proof of concept
 kernel
 - Extended BankAccountKernel into BankAccount and included 6 more methods in
 the BankAccount
+
+## [2024.10.30]
+
+### Added
+
+- Designed abstract class for BankAccountSecondary component
+
+### Updated
+
+- Changed design to include Secondary method with the data of a HashMap with
+Strings as the keys and Account class as the values as long as data for the
+size of the map or the total accounts
+- Added Code for totalAccounts, addAccount, removeAccount, and hasAccount
+methods and implemented them in the Secondary method
+- Added implementation for hashCode and toString for BankAccount
