@@ -1,3 +1,4 @@
+import components.map.Map;
 import components.standard.Standard;
 
 public interface BankAccountKernel extends Standard<BankAccount> {
@@ -55,4 +56,21 @@ public interface BankAccountKernel extends Standard<BankAccount> {
      * @ensures |this.accounts| == this.size
      */
     public int totalAccounts();
+
+    /**
+     * Reports {@code int} of {@code this.size}
+     *
+     * @param value
+     *            the {@code int} for the number of accounts
+     *
+     * @ensures |this.accounts| == value
+     */
+    public void changeAmountOfAccounts(int value);
+
+    /**
+     * Reports {@code Map<String, Account>} of {@code this.accounts}
+     *
+     * @return Map of all accounts
+     */
+    public Map<String, Account> getAccounts();
 }

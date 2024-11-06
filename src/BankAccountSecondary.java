@@ -1,16 +1,6 @@
 import components.map.Map;
 
 public abstract class BankAccountSecondary implements BankAccount {
-    /**
-     * Total Accounts or Size of Map
-     */
-    int size;
-
-    /**
-     * Map with all user accounts
-     */
-    Map<String, Account> accounts;
-
     @Override
     public void addAccount(String account, int deposit, double interest,
             String type, int overdraft) {
@@ -21,42 +11,43 @@ public abstract class BankAccountSecondary implements BankAccount {
                 .equals("") : "Account must have a type of a non empty string";
         assert overdraft >= 0 : "Overdraft fee must be greater or equal to 0";
 
+        Map<String, Account> accounts = this.getAccounts();
+
         Account values = new Account();
         values.amount = deposit;
         values.interest = interest;
         values.type = type;
         values.overdraft = overdraft;
 
-        this.accounts.add(account, values);
-        this.size = this.size + 1;
+        accounts.add(account, values);
+        this.changeAmountOfAccounts(this.totalAccounts() + 1);
     }
 
     @Override
     public int removeAccount(String account) {
-        Map.Pair<String, Account> values = this.accounts.remove(account);
+        Map<String, Account> accounts = this.getAccounts();
+        Map.Pair<String, Account> values = accounts.remove(account);
         Account info = values.value();
-        this.size = this.size - 1;
+        this.changeAmountOfAccounts(this.totalAccounts() - 1);
 
         return info.amount;
     }
 
     @Override
     public boolean hasAccount(String account) {
-        return this.accounts.hasKey(account);
-    }
+        Map<String, Account> accounts = this.getAccounts();
 
-    @Override
-    public int totalAccounts() {
-        return this.size;
+        return accounts.hasKey(account);
     }
 
     @Override
     public String toString() {
         StringBuilder word = new StringBuilder("[Bank Account]");
+        Map<String, Account> accounts = this.getAccounts();
 
-        word.append("[Size: " + this.size + "]");
+        word.append("[Size: " + this.totalAccounts() + "]");
 
-        for (Map.Pair<String, Account> i : this.accounts) {
+        for (Map.Pair<String, Account> i : accounts) {
             Account values = i.value();
 
             word.append("[" + i.key() + ":");
@@ -72,7 +63,9 @@ public abstract class BankAccountSecondary implements BankAccount {
 
     @Override
     public int hashCode() {
-        return (int) this.accounts.hashCode() * (this.size / 2);
+        Map<String, Account> accounts = this.getAccounts();
+
+        return (int) accounts.hashCode() * (this.totalAccounts() / 2);
     }
 
 }
