@@ -25,19 +25,15 @@ public abstract class BankAccountSecondary implements BankAccount {
 
     @Override
     public int removeAccount(String account) {
+        assert this.hasAccount(
+                account) : "Must have account in accounts to remove";
+
         Map<String, Account> accounts = this.getAccounts();
         Map.Pair<String, Account> values = accounts.remove(account);
         Account info = values.value();
         this.changeAmountOfAccounts(this.totalAccounts() - 1);
 
         return info.amount;
-    }
-
-    @Override
-    public boolean hasAccount(String account) {
-        Map<String, Account> accounts = this.getAccounts();
-
-        return accounts.hasKey(account);
     }
 
     @Override
