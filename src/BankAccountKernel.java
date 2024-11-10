@@ -63,6 +63,7 @@ public interface BankAccountKernel extends Standard<BankAccount> {
      * @param value
      *            the {@code int} for the number of accounts
      *
+     * @requires value >= 0
      * @ensures |this.accounts| == value
      */
     public void changeAmountOfAccounts(int value);
