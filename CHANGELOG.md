@@ -123,3 +123,16 @@ size of the map or the total accounts
 - Added Code for totalAccounts, addAccount, removeAccount, and hasAccount
 methods and implemented them in the Secondary method
 - Added implementation for hashCode and toString for BankAccount
+
+## [2024.11.15]
+
+### Added
+
+- Designed kernel implementation for BankAccountMap component
+
+### Updated
+
+- Changed design to include all of the implementations and data for all of the
+methods. This included a constructer for BankAccountMap, all of the methods from
+BankAccount and, BankAccountKernel.
+- Implemented transferFrom, clear, and newInstance from Standard
