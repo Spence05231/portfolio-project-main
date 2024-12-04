@@ -7,7 +7,7 @@ class Account {
     int overdraft;
 }
 
-public class BankAccountTest {
+public class BankAccountInitial {
 
     // Private for Map of Stocks
     private HashMap<String, Account> accounts;
@@ -18,7 +18,7 @@ public class BankAccountTest {
         this.size = 0;
     }
 
-    public BankAccountTest() {
+    public BankAccountInitial() {
         this.createAccount();
     }
 
@@ -118,7 +118,7 @@ public class BankAccountTest {
 
 class Main {
     public static void main(String[] args) {
-        BankAccountTest a = new BankAccountTest();
+        BankAccountInitial a = new BankAccountInitial();
         a.addAccount("Checking", 1000, 0.05, "Bank", 100);
         a.addAccount("Savings", 2500, 0.05, "Bank", 100);
         a.addAccount("Brokerage", 10000, 0, "Brokerage", 0);

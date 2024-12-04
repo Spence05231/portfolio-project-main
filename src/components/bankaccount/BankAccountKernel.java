@@ -1,3 +1,5 @@
+package components.bankaccount;
+
 import components.map.Map;
 import components.standard.Standard;
 

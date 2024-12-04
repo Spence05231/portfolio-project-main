@@ -1,9 +1,12 @@
+package components.bankaccount;
+
 import components.map.Map;
 
 public abstract class BankAccountSecondary implements BankAccount {
     @Override
     public void addAccount(String account, int deposit, double interest,
             String type, int overdraft) {
+        assert !this.hasAccount(account) : "Account name already exists";
         assert deposit >= 0 : "Deposit amount must be greater or equal to 0";
         assert interest >= 0
                 && interest <= 1.0 : "Interest rate must be greater or equal to 0.0 and less than or equal to 1.0";
@@ -62,6 +65,21 @@ public abstract class BankAccountSecondary implements BankAccount {
         Map<String, Account> accounts = this.getAccounts();
 
         return (int) accounts.hashCode() * (this.totalAccounts() / 2);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Map<String, Account> accounts = this.getAccounts();
+
+        if (o.equals(accounts)) {
+            return true;
+        } else if (accounts.toString().equals(o.toString())) {
+            return true;
+        } else if (accounts.getClass() == o.getClass()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

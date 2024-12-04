@@ -136,3 +136,19 @@ methods and implemented them in the Secondary method
 methods. This included a constructer for BankAccountMap, all of the methods from
 BankAccount and, BankAccountKernel.
 - Implemented transferFrom, clear, and newInstance from Standard
+
+## [2024.12.03]
+
+### Added
+
+- Designed test suite for BankAccount component
+- Designed two different use cases for BankAccount component
+
+### Updated
+
+- Changed design to include overdraft fees when removing money and account
+balance goes negative
+- Added equals method
+- Added test cases for all kernel and secondary methods
+- Added two real world applications for the BankAccount component with main methods
+- Organized and polished files to make sure everything was up to standards

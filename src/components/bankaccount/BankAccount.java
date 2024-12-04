@@ -1,3 +1,5 @@
+package components.bankaccount;
+
 public interface BankAccount extends BankAccountKernel {
     /**
      * Updates {@code this.accounts.amount} to add money to account from

@@ -1,3 +1,5 @@
+package components.bankaccount;
+
 import components.map.Map;
 import components.map.Map1L;
 
@@ -28,7 +30,7 @@ public class BankAccountMap extends BankAccountSecondary {
     /**
      * Constructor for BankAccountMap
      */
-    private BankAccountMap() {
+    public BankAccountMap() {
         this.createNewRep();
     }
 
@@ -45,6 +47,11 @@ public class BankAccountMap extends BankAccountSecondary {
     public int removeMoney(String account, int amount) {
         Account values = this.accounts.value(account);
         values.amount -= amount;
+
+        if (values.amount < 0) {
+            values.amount -= values.overdraft;
+        }
+
         this.accounts.replaceValue(account, values);
 
         return values.amount;
